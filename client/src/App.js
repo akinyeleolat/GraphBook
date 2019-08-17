@@ -1,18 +1,15 @@
 import React from 'react';
+import { ApolloProvider } from 'react-apollo';
 import Album from './components/Album';
-import ApolloClient from 'apollo-boost';
-import {ApolloProvider} from 'react-apollo';
+import client from './core/graphql';
 
-const client = new ApolloClient({
-  uri:"http://localhost:8001/graphql"
-});
 
-const App = ()=> {
+const App = () => {
   return (
     <ApolloProvider client={client}>
-   <Album/>
-   </ApolloProvider>
+      <Album/>
+    </ApolloProvider>
   );
-}
+};
 
 export default App;

@@ -10,4 +10,4 @@ export const getAllBooksQuery = gql`{
          }
        }
      }`;
-export const getSingleBooksQuery= {};
+export const getSingleBooksQuery = {};
