@@ -30,39 +30,46 @@
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
     "@babel/node": "^7.4.5",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/plugin-transform-runtime": "^7.4.4",
     "@babel/preset-env": "^7.4.5",
     "@babel/register": "^7.4.4",
     "@babel/runtime": "^7.5.4",
     "babel-plugin-istanbul": "^5.1.4",
     "babel-plugin-module-resolver": "^3.2.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-export-extensions": "^6.22.0",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "dateformat": "^3.0.3",
     "dotenv": "^8.0.0",
+    "easygraphql-format-error": "0.0.3",
     "express": "^4.17.1",
     "express-graphql": "^0.8.0",
     "express-jwt": "^5.3.1",
-    "graphql": "^14.4.2",
+    "graphql": "^14.5.8",
     "graphql-constraint-directive": "^1.4.0",
     "jsonwebtoken": "^8.5.1",
     "pg": "^7.11.0",
     "pg-hstore": "^2.3.2",
-    "sequelize": "^5.8.6",
+    "sequelize": "^5.21.2",
     "sequelize-cli": "^5.5.0",
     "uuid": "^3.3.2",
-    "validatorjs": "^3.15.1",
     "yup": "^0.27.0"
   },
   "devDependencies": {
     "eslint": "^6.0.1",
-    "nodemon": "^1.19.1",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-import-resolver-babel-module": "^5.1.0",
+    "eslint-plugin-flowtype": "^2.50.3",
     "eslint-plugin-import": "^2.17.3",
+    "flow-bin": "^0.61.0",
     "husky": "^3.0.0",
-    "lint-staged": "^9.2.0"
+    "lint-staged": "^9.2.0",
+    "nodemon": "^1.19.1"
   },
   "lint-staged": {
     "*.js": [
@@ -74,6 +81,6 @@
     "hooks": {
       "pre-commit": "lint-staged"
     },
-    "homepage": "https://github.com/andela/king-kong-ah-backend#readme"
+    "homepage": "https://github.com/akinyeleolat/GraphBook#readme"
   }
 }

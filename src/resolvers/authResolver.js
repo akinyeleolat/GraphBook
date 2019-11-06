@@ -1,8 +1,9 @@
+// import validator from 'validator';
 import models from '../db/models';
 import {
   tokenGenerator, comparePassword, checkAuth
 } from '../helpers/utils';
-
+import { ValidationError } from '../middlewares/errors';
 
 const { User } = models;
 
@@ -18,6 +19,7 @@ export const currentUser = async (parent, args, context) => {
 };
 
 export const signUpUser = async (args) => {
+  const errors = [];
   let {
     email,
     username,
@@ -35,7 +37,12 @@ export const signUpUser = async (args) => {
     const user = await User.findOne({ where: { email } });
 
     if (user) {
-      throw new Error('user with this email exist');
+      // throw new Error('user with this email exist');
+      errors.push({ key: 'signup', message: 'user with this email address already exists.' });
+      errors.push({ key: 'sign', message: 'user already exists.' });
+    }
+    if (errors.length) {
+      throw new ValidationError(errors);
     }
     const newUser = await User.create(userData);
     const token = tokenGenerator(

@@ -7,6 +7,7 @@ import cors from 'cors';
 import schema from './schema';
 import authMiddleWare from './middlewares/authMiddleware';
 import { handleErrorNext } from './helpers/utils';
+import errors from './middlewares/errors';
 
 
 env.config();
@@ -26,7 +27,23 @@ app.use(
       context: {
         user: req.user
       },
-      graphiql: true
+      graphiql: true,
+      // customFormatErrorFn: error => ({
+      //   message: error.message,
+      //   state: error.originalError && error.originalError.state,
+      //   locations: error.locations,
+      //   path: error.path,
+      // }),
+      customFormatErrorFn: (error: any) => {
+        errors.report(error.originalError || error);
+        return {
+          message: error.message,
+          code: error.originalError && error.originalError.code,
+          state: error.originalError && error.originalError.state,
+          locations: error.locations,
+          path: error.path,
+        };
+      },
     }))
 );
 
